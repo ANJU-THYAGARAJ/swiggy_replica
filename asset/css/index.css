@@ -92,12 +92,19 @@ input{
     CONTAINER
 ==================================================*/
 
-.container{
+/* .container{
 
     width:min(100%,var(--container));
     margin:auto;
     padding-inline:16px;
 
+} */
+
+.container{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:0 40px;
 }
 
 /*==================================================
@@ -1173,12 +1180,21 @@ nav{
                 FOOD & GROCERY SECTION
 ==================================================*/
 
-.food-section{
+/* .food-section{
     width:100%;
     max-width:1200px;
     margin:60px auto;
     padding:0 20px;
+} */
+
+.food-section{
+    width:100%;
+    margin:70px 0;
 }
+
+.food-section .container{
+    max-width:1400px;
+} 
 
 .section-header{
     display:flex;
@@ -1249,11 +1265,20 @@ nav{
             GROCERY SECTION
 ==================================================*/
 
-.grocery{
+/* .grocery{
     width:100%;
     max-width:1200px;
     margin:60px auto;
     padding:0 20px;
+} */
+
+ .grocery{
+    width:100%;
+    margin:70px 0;
+}
+
+.grocery .container{
+    max-width:1400px;
 }
 
 
@@ -1428,271 +1453,260 @@ nav{
 /*==================================================
                 DINEOUT SECTION
 ==================================================*/
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+
+
+ /* .dineout{
+    width:90%;
+    max-width:1280px;
+    margin:70px auto;
+} */
+
+
+.dineout{
+   padding:80px 0;
 }
 
-/* ==========================================================================
-   1. MOBILE FIRST (320px and above)
-   Base styles applied by default for small screens.
-   ========================================================================== */
+.dineout .container{
+    max-width:1400px;
+}
+/* Heading Section */
 
-body {
-  background-color: #ffffff;
-  padding: 16px 12px; /* Reduced outer padding for mobile */
+.dineout-title{
+    font-size:36px;
+    font-weight:700;
 }
 
-.dineout-container {
-  width: 100%;
-  margin: 0 auto;
+.dineout-nav{
+    display:flex;
+    gap:12px;
 }
 
-/* Header Styling */
-.dineout-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+.dineout-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
 }
 
-.dineout-header h2 {
-  font-size: 18px;
-  font-weight: 800;
-  color: #02060c;
-  line-height: 1.2;
+/* Heading */
+
+.dineout-header h2{
+
+    margin:0;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#1c1c1c;
+
+    line-height:1.2;
 }
 
-.avi-buttons {
-  display: flex;
-  gap: 8px;
+
+
+
+
+.restaurant-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
 }
 
-.avi-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background-color: #e2e2e7;
-  color: #02060c;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
+/* ==========================
+   CARD
+========================== */
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    transition:.3s;
 }
 
-.avi-btn:hover {
-  background-color: #d7d7dc;
+.card:hover{
+    transform:translateY(-6px);
 }
 
-/* Grid Layout: 1 column stack on mobile */
-.cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+/* ==========================
+   IMAGE
+========================== */
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
 }
 
-.card {
-  border: 1px solid #e8e8e8;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
+/* ==========================
+   CONTENT
+========================== */
+
+.card-content{
+    padding:16px;
 }
 
-/* Image Section */
-.card-image {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
+/* Restaurant Name + Rating */
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
 }
 
-.image-overlay {
-  width: 100%;
-  padding: 12px 14px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.top h3{
+    flex:1;
+    font-size:20px;
+    font-weight:700;
+    color:#222;
+    line-height:1.3;
+
+    display:-webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
-.restaurant-name {
-  font-size: 15px;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 75%;
+.top span{
+    background:#16a34a;
+    color:#fff;
+    padding:4px 8px;
+    border-radius:15px;
+    font-size:14px;
+    white-space:nowrap;
 }
 
-.rating {
-  font-size: 12px;
-  font-weight: 700;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2px 6px;
-  border-radius: 4px;
+/* Cuisine */
+
+.card-content p{
+    font-size:15px;
+    color:#666;
+    margin:8px 0;
 }
 
-/* Card Content Area */
-.card-body {
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* Price & Distance */
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:15px;
+    color:#555;
+    margin-bottom:15px;
 }
 
-.cuisine-price, 
-.location-distance {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #686b78;
+/* ==========================
+   OFFER BOX
+========================== */
+
+.offer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#18a957;
+    color:#fff;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
 }
 
-.cuisine, 
-.location {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 65%;
+.offer strong{
+    font-size:14px;
 }
 
-.price, 
-.distance {
-  color: #3d4152;
+/* ==========================
+   BANK OFFER
+========================== */
+
+.bank-offer{
+
+    background:#dff7e7;
+
+    color:#0d8d47;
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    margin-bottom:10px;
 }
 
-/* Offer Badges */
-.offer-badge {
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* ==========================
+   PAYMENT OFFER
+========================== */
+
+.payment-offer{
+
+    color:#5a36d6;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+.restaurant-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
 }
 
-.green-badge {
-  background-color: #1ba672;
-  color: #ffffff;
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px 20px 0 0;
 }
 
-.more-offers {
-  font-size: 10px;
-  opacity: 0.9;
+.card{
+    border-radius:20px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
-.light-green-badge {
-  background-color: #c8f3e1;
-  color: #0d6e49;
+.offer{
+    margin-top:12px;
+    background:#1ba672;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
 }
 
-.extra-offer {
-  font-size: 11px;
-  font-weight: 700;
-  color: #5d38a0;
-  margin-top: 2px;
+.bank-offer{
+    margin-top:10px;
+    background:#d9f7e6;
+    padding:10px;
+    border-radius:10px;
+    color:#118847;
 }
 
-/* ==========================================================================
-   2. TABLET (768px and above)
-   ========================================================================== */
-@media (min-width: 768px) {
-  body {
-    padding: 24px 32px;
-  }
-
-  .dineout-header {
-    margin-bottom: 20px;
-  }
-
-  .dineout-header h2 {
-    font-size: 22px;
-  }
-
-  .avi-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
-  }
-
-  /* 2 columns for tablet view */
-  .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .card-image {
-    height: 190px;
-  }
+.payment-offer{
+    margin-top:10px;
+    color:#5d3fd3;
+    font-size:14px;
 }
 
-/* ==========================================================================
-   3. LAPTOP (1024px and above)
-   ========================================================================== */
-@media (min-width: 1024px) {
-  body {
-    padding: 32px 48px;
-  }
-
-  .dineout-container {
-    max-width: 1100px;
-  }
-
-  .dineout-header h2 {
-    font-size: 24px;
-  }
-
-  /* 4 columns layout matching original design */
-  .cards-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
-
-  .card-image {
-    height: 180px;
-  }
-
-  .restaurant-name {
-    font-size: 16px;
-  }
-
-  .card-body {
-    padding: 12px 16px 16px;
-  }
-}
-
-/* ==========================================================================
-   4. DESKTOP (1440px and above)
-   ========================================================================== */
-@media (min-width: 1440px) {
-  body {
-    padding: 40px 80px;
-  }
-
-  .dineout-container {
-    max-width: 1320px;
-  }
-
-  .cards-grid {
-    gap: 24px;
-  }
-
-  .card-image {
-    height: 200px;
-  }
-}
 /*==================================================
                 DELIVERY
 ==================================================*/
@@ -1721,7 +1735,7 @@ body {
                 TAGS
 ==================================================*/
 
-.restaurant-tags{
+/* .restaurant-tags{
 
     display:flex;
 
@@ -1745,13 +1759,13 @@ body {
 
     font-size:13px;
 
-}
+} */
 
 /*==================================================
                 VIEW BUTTON
 ==================================================*/
 
-.restaurant-btn{
+/* .restaurant-btn{
 
     margin-top:50px;
 
@@ -1787,7 +1801,7 @@ body {
 
     transform:translateY(-3px);
 
-}
+} */
 
 /*==================================================
                 TABLET
@@ -1813,7 +1827,7 @@ body {
                 LAPTOP
 ==================================================*/
 
-@media(min-width:1024px){
+/* @media(min-width:1024px){
 
 .restaurant-grid{
 
@@ -1827,13 +1841,13 @@ body {
 
 }
 
-}
+} */
 
 /*==================================================
                 DESKTOP
 ==================================================*/
 
-@media(min-width:1440px){
+/* @media(min-width:1440px){
 
 .restaurant-grid{
 
@@ -1853,7 +1867,7 @@ body {
 
 }
 
-}
+} */
 /*==================================================
                 APP DOWNLOAD
 ==================================================*/
@@ -1864,6 +1878,16 @@ body {
 
     background:#ffffff;
 
+}
+
+
+.app-download{
+    width:100%;
+    padding:80px 0;
+}
+
+.app-download .container{
+    max-width:1400px;
 }
 
 .download-container{
@@ -2085,12 +2109,22 @@ body {
                 CITIES SECTION
 ==================================================*/
 
-.cities{
+/* .cities{
 
     padding:80px 0;
 
     background:#fff;
 
+} */
+
+
+ .cities{
+    width:100%;
+    padding:70px 0;
+}
+
+.cities .container{
+    max-width:1400px;
 }
 
 .city-grid{
@@ -2198,12 +2232,31 @@ body {
                 FOOTER
 ==================================================*/
 
-footer{
+/* footer{
 
     background:#f5f6fa;
 
     padding:80px 0 40px;
 
+} */
+
+
+ footer{
+    width:100%;
+    background:#f5f6fa;
+    padding:70px 0 40px;
+}
+
+footer .container{
+    max-width:1400px;
+}
+
+.food-section,
+.grocery,
+.dineout,
+.app-download,
+.cities{
+    margin-top:80px;
 }
 
 .footer-grid{
@@ -3842,4 +3895,183 @@ a{
 
 }
 
+}
+
+
+/* ===========================
+   Dineout Section
+=========================== */
+
+.dineout{
+    padding:70px 0;
+    background:#fff;
+}
+
+.dineout .container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.dineout-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.dineout-title{
+    font-size:38px;
+    font-weight:700;
+    color:#1c1c1c;
+}
+
+.dineout-nav{
+    display:flex;
+    gap:12px;
+}
+
+
+/* ===========================
+   Cards Row
+=========================== */
+
+.dineout-cards{
+    display:flex;
+    gap:22px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    padding-bottom:15px;
+}
+
+.dineout-cards::-webkit-scrollbar{
+    display:none;
+}
+
+
+
+/* test  */
+
+
+
+.card {
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+.card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.image-overlay {
+  width: 100%;
+  padding: 12px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.restaurant-name {
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75%;
+}
+.rating {
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.card-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rating {
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.card-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cuisine-price, 
+.location-distance {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #686b78;
+}
+.cuisine-price, 
+.location-distance {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #686b78;
+}
+
+.cuisine, 
+.location {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 65%;
+}
+.price, 
+.distance {
+  color: #3d4152;
+}
+.cuisine-price, 
+.location-distance {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #686b78;
+}
+.more-offers {
+  font-size: 10px;
+  opacity: 0.9;
+}
+ .offer-badge {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.green-badge {
+  background-color: #1ba672;
+  color: #ffffff;
+}
+.extra-offer {
+  font-size: 11px;
+  font-weight: 700;
+  color: #5d38a0;
+  margin-top: 2px;
 }
